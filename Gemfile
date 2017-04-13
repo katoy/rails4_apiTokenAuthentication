@@ -45,3 +45,17 @@ group :development do
   gem 'spring'
 end
 
+group :development, :test do
+  # gem 'rails-erd'
+  # See http://qiita.com/takecian/items/ab5e292a369f77c0e10c
+  gem 'rails-erd', github: 'paulwittmann/rails-erd', branch: 'mavericks'
+  gem 'redcarpet', require: false
+  gem 'fabrication'
+
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'pry'
+  gem 'pry-byebug'      # for ruby 2
+  gem 'pry-doc'
+  gem 'pry-rails'
+end
