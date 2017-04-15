@@ -16,16 +16,16 @@ See
 
     $ bundle exec rails s
 
-create は CSFR token チェックをしている。次のコマンドはエラーが発生する。
+create は CSRF token チェックをしている。次のコマンドはエラーが発生する。
 
     $ curl -X POST -H 'Content-Type:application/json' -d '{ "product": { "name": "test", "age": 10, "email": "test@example.com" }}' http://0.0.0.0:3000/products.json
 
-CSFR token を指定する。
-まず、 html ページにアクセスして、CSFR トークンを取得する。
+CSRF token を指定する。
+まず、 html ページにアクセスして、CSRF トークンを取得する。
 
     $ curl http://localhost:3000/products --cookie-jar cookie | grep csrf
 
-cookie と CSFR token を指定すると、エラーが解消する。
+cookie と CSRF token を指定すると、エラーが解消する。
 
     $ curl -b cookie -X POST  -d '{ "product": { "name": "test", "age": 10, "email": "test@example.com" }}' -H "X-CSRF-TOKEN: hhSi+sJIzA04hZIfMeLVzbQcFosD2cAM7/R6bs8lrW2CubUqH624jITHiQc2S6vK1WH154ni2fcCq199I5gTRA==" -H "Content-Type: application/json" http://localhost:3000/products.json
 
