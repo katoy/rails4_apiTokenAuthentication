@@ -15,5 +15,15 @@
   <%= @product.email %>
 </p>
 
+<p>
+  <strong>access_token:</strong>
+  <%= @product.access_token %>
+</p>
+
+<p>
+  <strong>token_created_at</strong>
+  <%= @product.token_created_at %>
+</p>
+
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>

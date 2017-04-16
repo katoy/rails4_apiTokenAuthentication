@@ -11,21 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170412224252) do
+ActiveRecord::Schema.define(version: 20170416001252) do
 
-  create_table "items", force: :cascade do |t|
-    t.string   "name"
-    t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+  create_table "api_keys", force: :cascade do |t|
+    t.string   "access_token", null: false
+    t.datetime "expires_at"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "products", force: :cascade do |t|
     t.string   "name"
     t.integer  "age"
     t.string   "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "access_token"
+    t.datetime "token_created_at"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
+
+  add_index "products", ["access_token", "token_created_at"], name: "index_products_on_access_token_and_token_created_at"
 
 end

@@ -1,6 +1,5 @@
 class ProductsController < ApplicationController
-  # skip_before_filter :verify_authenticity_token, :only=>[:index]
-  before_action :authenticate, except: [:index]
+  # before_action :authenticate, except: [:index]
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   # GET /products
